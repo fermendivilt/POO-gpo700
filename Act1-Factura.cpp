@@ -2,6 +2,7 @@
 #include <string>
 #include <ctime>
 #include <windows.h>
+#include <vector>
 using namespace std;
 
 class Vendedor {
@@ -46,42 +47,45 @@ int GeneraFactura(Factura arrf[], int contador, Vendedor ven, Inventario art, in
 };
 
 int main() {
-    Vendedor arreglov[2];
-    Inventario arregloi[3];
-    Factura arreglof[2];
+    int n_empleados, size_inv, opcion;
+    Vendedor arreglov[100];
+    Inventario arregloi[100];
+    Factura arreglof[100];
 
-    Vendedor v1 = {"v100","Don Julio el Grande"};
-    Vendedor v2 = {"v200","Doña Julia la Pequeña"};
-    arreglov[0] = v1;
-    arreglov[1] = v2;
+    cout << "Bienvenido a la terminal de facturas de (inserte nombre del lugar). \n";
+    cout <<"Por favor, ingrese el número de empleados: ";
+    cin >> n_empleados;
 
-    Inventario i1 = {"i300","Tornillito",3};
-    Inventario i2 = {"i400","Tornillo",6.5};
-    Inventario i3 = {"i500","Tornillote",10.0};
-    arregloi[0] = i1;
-    arregloi[1] = i2;
-    arregloi[2] = i3;
-    
-    int contadorFactura = 0;
-    contadorFactura = GeneraFactura(arreglof, contadorFactura, v1, i2, 32);
+    cout <<"Por favor, ingrese el número de artículos: ";
+    cin >> size_inv;
 
-    // imprimimos todas las facturas
-    cout << "Facturas Generadas "<< endl;
-    cout << "No" <<"\t\t"<<"Vendedor"<<"\t"<<"Articulo"<<endl;
+    cout <<"Configuración inicial terminada, ya puede hacer facturas :D.";
 
-    string nombreArticulo;
-    for (int j=0; j<=contadorFactura; j++){
-        for (int k=0;k<sizeof(arregloi)/sizeof(arregloi[0]);k++){
-            if (arreglof[j].Cve_articulo == arregloi[k].Cve_articulo)
-                nombreArticulo = arregloi[k].Descripcion;
+    while (opcion != 0){
+        int contadorFactura = 0;
+        contadorFactura = GeneraFactura(arreglof, contadorFactura, v1, i2, 32);
+
+        // imprimimos todas las facturas
+        cout << "Facturas Generadas "<< endl;
+        cout << "No" <<"\t\t"<<"Vendedor"<<"\t"<<"Articulo"<<endl;
+
+        string nombreArticulo;
+        for (int j=0; j<=contadorFactura; j++){
+            for (int k=0;k<sizeof(arregloi)/sizeof(arregloi[0]);k++){
+                if (arreglof[j].Cve_articulo == arregloi[k].Cve_articulo)
+                    nombreArticulo = arregloi[k].Descripcion;
+            }
+            cout<<arreglof[j].No_Factura<<"\t"
+                <<arreglof[j].Cve_vendedor<<"\t\t"
+                <<arreglof[j].Cve_articulo<<"\t"
+                <<nombreArticulo<<endl;
+
         }
-        cout<<arreglof[j].No_Factura<<"\t"
-            <<arreglof[j].Cve_vendedor<<"\t\t"
-            <<arreglof[j].Cve_articulo<<"\t"
-            <<nombreArticulo<<endl;
 
+        cout <<"¿Desea cerrar la terminal? Introduzca 0 para cerrar, o cualquier otro número para seguir.";
+        cout <<"No se guardarán las facturas.";
+        cin >> n_empleados;
     }
-
 
     return 0;
 }
