@@ -1,3 +1,8 @@
+/*
+Fernando de Jesús Mendivil Terminel - A00232280
+-Aquípontunombrewe-
+*/
+
 #include <iostream>
 #include <string>
 #include <ctime>
