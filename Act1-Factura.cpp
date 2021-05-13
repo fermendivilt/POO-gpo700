@@ -12,9 +12,9 @@ class Vendedor {
         void crear_lista (int numero, Vendedor arr[]){
             string clave, persona;
             for (int i=0; i<numero; i++){
-                cout << "\nIngrese LA CLAVE del vendedor número " << i+1 << " de " << numero << ": ";
+                cout << "\nIngrese LA CLAVE del vendedor numero " << i+1 << " de " << numero << ": ";
                 cin >> clave;
-                cout << "\nIngrese EL NOMBRE del vendedor número " << i+1 << " de " << numero << ": ";
+                cout << "\nIngrese EL NOMBRE del vendedor numero " << i+1 << " de " << numero << ": ";
                 cin >> persona;
                 arr[i].Cve_vendedor = clave;
                 arr[i].Nombre = persona;
