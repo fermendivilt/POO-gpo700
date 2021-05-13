@@ -8,7 +8,25 @@ using namespace std;
 class Vendedor {
     public:
         string Cve_vendedor;
-        string Nombre;        
+        string Nombre;
+        void crear_lista (int numero, Vendedor arr[]){
+            string clave, persona;
+            for (int i=0; i<numero; i++){
+                cout << "\nIngrese LA CLAVE del vendedor número " << i+1 << " de " << numero << ": ";
+                cin >> clave;
+                cout << "\nIngrese EL NOMBRE del vendedor número " << i+1 << " de " << numero << ": ";
+                cin >> persona;
+                arr[i].Cve_vendedor = clave;
+                arr[i].Nombre = persona;
+            }
+        };
+        void imprimir_lista (int numero, Vendedor arr[]){
+            cout << "Lista de vendedores:\n";
+            cout<< "Clave" << "\t\t" << "Nombre\n";
+            for (int i=0; i<numero; i++){
+                cout << arr[i].Cve_vendedor << "\t\t" << arr[i].Nombre << "\n";
+            }
+        };
 };
 
 class Inventario {
@@ -53,8 +71,10 @@ int main() {
     Factura arreglof[100];
 
     cout << "Bienvenido a la terminal de facturas de (inserte nombre del lugar). \n";
-    cout <<"Por favor, ingrese el número de empleados: ";
+    cout <<"Por favor, ingrese el numero de empleados: ";
     cin >> n_empleados;
+    arreglov->crear_lista(n_empleados, arreglov);
+    arreglov->imprimir_lista(n_empleados, arreglov);
 
     cout <<"Por favor, ingrese el número de artículos: ";
     cin >> size_inv;
