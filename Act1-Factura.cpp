@@ -1,3 +1,8 @@
+Randy Oliver Ortega Cota - A00232304
+Fernando de Jesús Mendivil Terminel - A00232280
+/*
+*/
+
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -12,9 +17,9 @@ class Vendedor {
         void crear_lista (int numero, Vendedor arr[]){
             string clave, persona;
             for (int i=0; i<numero; i++){
-                cout << "\nIngrese LA CLAVE del vendedor número " << i+1 << " de " << numero << ": ";
+                cout << "\nIngrese LA CLAVE del vendedor numero " << i+1 << " de " << numero << ": ";
                 cin >> clave;
-                cout << "\nIngrese EL NOMBRE del vendedor número " << i+1 << " de " << numero << ": ";
+                cout << "\nIngrese EL NOMBRE del vendedor numero " << i+1 << " de " << numero << ": ";
                 cin >> persona;
                 arr[i].Cve_vendedor = clave;
                 arr[i].Nombre = persona;
@@ -34,6 +39,32 @@ class Inventario {
         string Cve_articulo;
         string Descripcion;
         double Precio;
+        void GenerarArticulo(int num, Inventario arreInv[]){
+            string clave,descrip;
+            double prec;
+            for (int i = 0; i < num; i++)
+            {
+                cout<<"\nIngrese la clave del articulo "<<i+1<<" de "<<num<<": ";
+                cin>>clave;
+                cout<<"\nIngrese la descripcion del articulo "<<i+1<<" de "<<num<<": ";
+                cin>>descrip;
+                cout<<"\nIngrese el precio del articulo "<<i+1<<" de "<<num<<": ";
+                cin>>prec;         
+                arreInv[i].Cve_articulo = clave;
+                arreInv[i].Descripcion = descrip;
+                arreInv[i].Precio = prec;      
+            }
+        };
+        
+        void ImprimirArticulos(int num, Inventario arreInv[]){
+            cout<<"Lista de articulos"<<endl;
+            cout<<"Clave"<<"\t\tDescripcion"<<"\t\t\tPrecio\n";
+            for (int i = 0; i < num; i++)
+            {
+                cout<<arreInv[i].Cve_articulo<<"\t\t"<<arreInv[i].Descripcion<<"\t\t\t"<<arreInv[i].Precio<<endl;
+            }
+            
+        };
 };
 
 class Factura {
@@ -65,7 +96,7 @@ int GeneraFactura(Factura arrf[], int contador, Vendedor ven, Inventario art, in
 };
 
 int main() {
-    int n_empleados, size_inv, opcion;
+    int n_empleados, size_inv=3, opcion;
     Vendedor arreglov[100];
     Inventario arregloi[100];
     Factura arreglof[100];
@@ -76,12 +107,15 @@ int main() {
     arreglov->crear_lista(n_empleados, arreglov);
     arreglov->imprimir_lista(n_empleados, arreglov);
 
-    cout <<"Por favor, ingrese el número de artículos: ";
+    cout <<"Por favor, ingrese el numero de articulos: ";
     cin >> size_inv;
+    arregloi->GenerarArticulo(size_inv,arregloi);
+    arregloi->ImprimirArticulos(size_inv,arregloi);
+
 
     cout <<"Configuración inicial terminada, ya puede hacer facturas :D.";
 
-    while (opcion != 0){
+    /*while (opcion != 0){
         int contadorFactura = 0;
         contadorFactura = GeneraFactura(arreglof, contadorFactura, v1, i2, 32);
 
@@ -106,6 +140,6 @@ int main() {
         cout <<"No se guardarán las facturas.";
         cin >> n_empleados;
     }
-
+*/
     return 0;
 }
