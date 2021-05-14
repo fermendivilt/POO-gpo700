@@ -55,10 +55,9 @@ class Inventario {
                 arreInv[i].Precio = prec;      
             }
         };
-        
         void ImprimirArticulos(int num, Inventario arreInv[]){
             cout<<"Lista de articulos"<<endl;
-            cout<<"Clave"<<"\t\tDescripcion"<<"\t\t\tPrecio\n";
+            cout<<"Clave"<<"\t\tDescripcion"<<"\t\tPrecio\n";
             for (int i = 0; i < num; i++)
             {
                 cout<<arreInv[i].Cve_articulo<<"\t\t"<<arreInv[i].Descripcion<<"\t\t\t"<<arreInv[i].Precio<<endl;
@@ -73,6 +72,31 @@ class Factura {
         string Cve_vendedor;
         string Cve_articulo;
         int Cantidad;
+        int generarFactura(string momento, string cve_vend, string cve_art, int cant, int contador, Factura arrf[]){
+            Factura f;
+            f.Cve_vendedor = cve_vend;
+            f.Cve_articulo = cve_art;
+            f.Cantidad = cant;
+            f.No_Factura = "F" + momento;
+            arrf[contador] = f;
+            contador++;
+            return contador;
+        }
+        void imprimir_facts(int contador, Inventario arri[], Factura arrf[]){
+            cout << "Facturas Generadas "<< endl;
+            cout << "No" <<"\t\t"<<"Vendedor"<<"\t"<<"Articulo"<<endl;
+            string nombreArticulo;
+            for (int j=0; j<=contador; j++){
+                for (int k=0;k<sizeof(arri)/sizeof(arri[0]);k++){
+                    if (arrf[j].Cve_articulo == arri[k].Cve_articulo)
+                        nombreArticulo = arri[k].Descripcion;
+                }
+                cout<<arrf[j].No_Factura<<"\t"
+                    <<arrf[j].Cve_vendedor<<"\t\t"
+                    <<arrf[j].Cve_articulo<<"\t"
+                    <<nombreArticulo<<endl;
+            }
+        }
 };
 
 string GETDATE(){
@@ -81,22 +105,13 @@ string GETDATE(){
     strftime(out, sizeof(out), "%Y%m%d%H%S", localtime(&t));
     Sleep(2000);  // pauses for 10 seconds
     return out;
-}
-
-
-int GeneraFactura(Factura arrf[], int contador, Vendedor ven, Inventario art, int cant){
-    Factura f1;
-    f1.Cve_vendedor = ven.Cve_vendedor;
-    f1.Cve_articulo = art.Cve_articulo;
-    f1.Cantidad = cant;
-    f1.No_Factura = "F" + GETDATE();
-    arrf[contador] = f1;
-    contador++;
-    return contador;
 };
 
 int main() {
-    int n_empleados, size_inv=3, opcion;
+    int n_empleados, size_inv, cantidad_articulos, cantidad_unidades;
+    int opcion = 1;
+    int contador = 0;
+    string clave_vendedor, clave_articulo, este_momento;
     Vendedor arreglov[100];
     Inventario arregloi[100];
     Factura arreglof[100];
@@ -112,34 +127,32 @@ int main() {
     arregloi->GenerarArticulo(size_inv,arregloi);
     arregloi->ImprimirArticulos(size_inv,arregloi);
 
+    cout <<"Configuracion inicial terminada, ya puede hacer facturas :D.";
 
-    cout <<"Configuración inicial terminada, ya puede hacer facturas :D.";
-
-    /*while (opcion != 0){
-        int contadorFactura = 0;
-        contadorFactura = GeneraFactura(arreglof, contadorFactura, v1, i2, 32);
-
-        // imprimimos todas las facturas
-        cout << "Facturas Generadas "<< endl;
-        cout << "No" <<"\t\t"<<"Vendedor"<<"\t"<<"Articulo"<<endl;
-
-        string nombreArticulo;
-        for (int j=0; j<=contadorFactura; j++){
-            for (int k=0;k<sizeof(arregloi)/sizeof(arregloi[0]);k++){
-                if (arreglof[j].Cve_articulo == arregloi[k].Cve_articulo)
-                    nombreArticulo = arregloi[k].Descripcion;
+    while (opcion != 0){
+        cout<<"¿Que desea hacer? Introduzca el numero de la opcion.\n";
+        cout<<"1. Generar una factura\n2. Ver la lista de facturas\n";
+        cout<<"3. Ver la lista de vendedores\n4. Ver la lista de productos\n";
+        cout<<"0. Salir \n";
+        cin>>opcion;
+        if (opcion == 1){
+            cout<<"¿Quien eres? Identificate por tu clave de vendedor: ";
+            cin>>clave_vendedor;
+            cout<<"¿Cuantos articulos diferentes venderas? Numero entero: ";
+            cin>>cantidad_articulos;
+            este_momento = GETDATE();
+            for (int i = 0; i < cantidad_articulos; i++){
+                cout<<"Ingrese la clave exacta del articulo "<<i+1<<" de "<<cantidad_articulos<<": ";
+                cin>>clave_articulo;
+                cout<<"Ingrese la cantidad de "<<clave_articulo<<": ";
+                cin>>cantidad_unidades;
+                contador = arreglof->generarFactura(este_momento,clave_vendedor,clave_articulo,cantidad_unidades,contador,arreglof);
             }
-            cout<<arreglof[j].No_Factura<<"\t"
-                <<arreglof[j].Cve_vendedor<<"\t\t"
-                <<arreglof[j].Cve_articulo<<"\t"
-                <<nombreArticulo<<endl;
-
         }
-
-        cout <<"¿Desea cerrar la terminal? Introduzca 0 para cerrar, o cualquier otro número para seguir.";
-        cout <<"No se guardarán las facturas.";
-        cin >> n_empleados;
+        if (opcion == 2){arreglof->imprimir_facts(contador,arregloi,arreglof);}
+        if (opcion == 3){arreglov->imprimir_lista(n_empleados, arreglov);}
+        if (opcion == 4){arregloi->ImprimirArticulos(size_inv,arregloi);}
     }
-*/
+    cout<<"Hastaaa la proooooximaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.";
     return 0;
 }
