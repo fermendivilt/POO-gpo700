@@ -47,8 +47,6 @@ Estudiante::Estudiante() : Persona(){
     carrera = "Ninguna";
 };
 Estudiante::Estudiante(string n, int e, string c) : Persona(n, e){
-    nombre = n;
-    edad = e;
     carrera = c;
 };
 /*void Estudiante::set_carrera(){
