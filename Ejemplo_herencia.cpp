@@ -1,3 +1,5 @@
+//Código basado en: https://sites.google.com/site/tallerdesarrollodesoftware/herencia-en-c 
+
 #include <iostream>
 using namespace std;
 
