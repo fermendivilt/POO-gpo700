@@ -13,5 +13,13 @@ int main()
     cout << "mynum adress: " << &myNum << endl;
     cout << "*p adress: " << p << endl<< endl;
 
+    //----------------------------------------------
+    int *j = new int;
+    *j = 7;
+
+    cout<<"*j content "<< *j<< endl;
+    cout<<"Where in heap "<<j<<endl;
+    cout<<"j resides in stack "<<&j<<endl;
+
     return 0;
 }
