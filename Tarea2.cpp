@@ -9,7 +9,7 @@ protected:
 public:
     Item();
     Item(string);
-    virtual void interaccion();
+    virtual void Interaccion();
 };
 Item::Item(){
     descripcion = "";
@@ -17,10 +17,45 @@ Item::Item(){
 Item::Item(string in_descripcion){
     descripcion = in_descripcion;
 }
-void interaccion(){
+void Interaccion(){
     cout<<"ERROR NO ITEM"<<endl;
 };
 
+class Equipable: public Item{
+    protected:
+        double Tasa_Dano;
+    public:
+        Equipable();
+        Equipable(string, double);
+        void Interaccion();
+};
+Equipable::Equipable() : Item(){
+    Tasa_Dano = 1;
+};
+Equipable::Equipable(string n, double td) : Item(n){
+    Tasa_Dano = td;
+}
+void Equipable::Interaccion(){
+    cout<<"Has equipado lo siguiente: "<< descripcion<<endl;
+}
+
+class Uso_Unico: public Item{
+    protected:
+        int Cantidad;
+    public:
+        Uso_Unico();
+        Uso_Unico(string, int);
+        void Interaccion();
+};
+Uso_Unico::Uso_Unico() : Item(){
+    Cantidad = 0;
+};
+Uso_Unico::Uso_Unico(string n, int cant) : Item(n){
+    Cantidad = cant;
+}
+void Uso_Unico::Interaccion(){
+    cout<<"Has usado: "<< descripcion<<endl;
+}
 
 class Personaje{
     private:
