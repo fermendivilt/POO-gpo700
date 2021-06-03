@@ -7,8 +7,11 @@
 #include <ctime>
 #include <windows.h>
 #include <cstdlib>
+#include <vector>
 using namespace std;
 
+#include "Flower.h"
+#include "Weapon.h"
 #include "LaserMan.h"
 #include "ArrowWoman.h"
 
@@ -25,7 +28,22 @@ int main(){
     objPersonaje = new ArrowWoman(30, 4, "Elise");
     NoPlayChars[1] = objPersonaje;
 
-    cout<<"\"Hola! Soy "<<NoPlayChars[0]->getNombre()<<", y me dieron ganas de correr.\""<<endl;
+    delete objPersonaje;
+
+    NoPlayChars[0]->addItemFlower(Fuerza);
+    NoPlayChars[0]->addItemWeapon(Espada);
+    NoPlayChars[0]->use(0);
+    NoPlayChars[0]->equip(1);
+
+    NoPlayChars[1]->addItemFlower(Vida);
+    NoPlayChars[1]->addItemFlower(Resistencia);
+    
+
+
+
+
+
+    /*cout<<"\"Hola! Soy "<<NoPlayChars[0]->getNombre()<<", y me dieron ganas de correr.\""<<endl;
     NoPlayChars[0]->Correr();
     cout<<endl;
     cout<<"\"Y yo "<<NoPlayChars[1]->getNombre()<<", y tengo ganas de saltar!.\""<<endl;
@@ -73,6 +91,6 @@ int main(){
     if(dano_personaje2>dano_personaje1){cout<<"Gano "<<(NoPlayChars[1]->getNombre())<<endl;};
     if(dano_personaje2<dano_personaje1){cout<<"Gano "<<(NoPlayChars[0]->getNombre())<<endl;};
     if(dano_personaje2==dano_personaje1){cout<<"Empate"<<endl;};
-
+    */
     return 0;
-}
+};

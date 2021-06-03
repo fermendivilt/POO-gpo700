@@ -12,10 +12,6 @@ class Base_Personajes {
         virtual double Shoot() = 0;
         int getRandom();
         string getNombre(){return nombre;};
-        vector <Item*> vecItems;
-        void addItemFlower(Flowers);
-        void addItemPotion();
-        void showInventory();
     protected:
         int nivel;
         double dano_base;
@@ -47,27 +43,6 @@ double Base_Personajes::Shoot(){
 int Base_Personajes::getRandom() {
     srand(time(0));
     return (rand() % 5 + 1);
-}
-void Base_Personajes::addItemFlower(Flowers in){
-    Item *objItems;
-
-    objItems = new Flower(in);
-
-    vecItems.push_back(objItems);
-}
-void Base_Personajes::addItemPotion(){
-    Item *objItems;
-
-    objItems = new Weapon();
-
-    vecItems.push_back(objItems);
-}
-void Base_Personajes::showInventory(){
-    cout<<endl;
-    cout<<"------- Inventario --------"<<endl;
-    for (int i=0;i<vecItems.size();i++){
-        vecItems[i]->desc();
-    }
 }
 
 #endif
