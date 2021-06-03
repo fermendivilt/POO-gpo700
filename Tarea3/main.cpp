@@ -9,6 +9,7 @@
 #include <cstdlib>
 using namespace std;
 
+#include "Flower.h"
 #include "LaserMan.h"
 #include "ArrowWoman.h"
 
