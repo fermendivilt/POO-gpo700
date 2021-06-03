@@ -38,6 +38,7 @@ void Base_Personajes::Saltar(){
 }
 double Base_Personajes::Shoot(){
     cout<<"ERROR"<<endl;
+    return 0.0;
 }
 int Base_Personajes::getRandom() {
     srand(time(0));

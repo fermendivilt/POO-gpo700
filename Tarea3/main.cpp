@@ -39,18 +39,18 @@ int main(){
     Sleep(1000);
 
     dano_personaje1 += NoPlayChars[0]->Shoot();
-    //NoPlayChars[0]->showCargador();
-    //NoPlayChars[0]->showCapacidad();  //Funciones de la tarea 1
-    //NoPlayChars[0]->recarga();        //que no funcionaron :(
+    static_cast<LaserMan *>(NoPlayChars[0])->showCargador();
+    static_cast<LaserMan *>(NoPlayChars[0])->showCapacidad();
+    static_cast<LaserMan *>(NoPlayChars[0])->recarga();
 
     Sleep(2000);
 
     dano_personaje2 += NoPlayChars[1]->Shoot();
-    //NoPlayChars[1].showArrows();
-    //cout<<endl;
-    //Sleep(2000);                      //Funciones de la tarea 1
-    //NoPlayChars[1].addArrow(3);       //que no funcionaron :(
-    //NoPlayChars[1].showArrows();
+    static_cast<ArrowWoman *>(NoPlayChars[1])->showArrows();
+    cout<<endl;
+    Sleep(2000);                      
+    static_cast<ArrowWoman *>(NoPlayChars[1])->addArrow(3);
+    static_cast<ArrowWoman *>(NoPlayChars[1])->showArrows();
     Sleep(2000);
     cout<<endl;
     
