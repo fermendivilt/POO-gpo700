@@ -7,7 +7,7 @@ protected:
     string description;
 public:
     Item();
-    Item(string, string);
+    Item(string);
     virtual void use_equip();
     virtual void desc();
 };
@@ -15,9 +15,8 @@ Item::Item(){
     name = "";
     description = "";
 }
-Item::Item(string in_name, string in_description){
+Item::Item(string in_name){
     name = in_name;
-    description = in_description;
 }
 void Item::use_equip(){
     cout<<"ERROR: No hay un Item definido."<<endl;

@@ -7,9 +7,11 @@
 #include <ctime>
 #include <windows.h>
 #include <cstdlib>
+#include <vector>
 using namespace std;
 
 #include "Flower.h"
+#include "Weapon.h"
 #include "LaserMan.h"
 #include "ArrowWoman.h"
 
