@@ -1,7 +1,7 @@
 #include "Item.h"
 
 enum listWea {Daga, Espada, Espada_larga};
-const char *arrWea[] = {"daga","espada","espada larga"};
+const char *arrWea[] ={"Daga","Espada","Espada larga"};
 
 class Weapon: public Item{
     private:
@@ -14,6 +14,6 @@ class Weapon: public Item{
 Weapon::Weapon():Item(){
 
 };
-Weapon::Weapon(listWea in_wea):Item(arrWea[in_wea]){
+Weapon::Weapon(listWea a_wea):Item(arrWea[a_wea]){
 
 };

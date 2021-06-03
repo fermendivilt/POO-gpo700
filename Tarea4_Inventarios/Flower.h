@@ -18,7 +18,6 @@ Flower::Flower() : Item(){
 };
 Flower::Flower(Flowers a_consum):Item(arrConsum[a_consum]){
     consum = a_consum;
-    name = arrConsum[consum];
     switch(consum) {
         case Vida:
         description = "Observas la flor blanca, emana paz, te llena de determinacion.";
