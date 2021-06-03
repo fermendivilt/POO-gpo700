@@ -25,7 +25,7 @@ LaserMan::LaserMan(int LimCargas, int nivel, string nom) : Base_Personajes(nivel
 double LaserMan::Shoot() {
     double dano;
     int ran = getRandom();
-    if (ran >= 3){
+    if (ran >= 4){
         cout << getNombre()<<" se sobrecarga y dispara! Inflinge "<<(dano_base * (2.5))<<" de dano magico!!"<< endl;
         Cargador -= 2;
         dano = dano_base * (2.5);
