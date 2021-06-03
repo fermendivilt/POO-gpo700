@@ -35,15 +35,15 @@ Flower::Flower(Flowers a_consum):Item(arrConsum[a_consum]){
 void Flower::use_equip(){
     switch(consum) {
         case Vida:
-        cout << "Observas la flor blanca, emana paz, te llena de determinacion."<<endl;
+        cout << "Consumes la flor y te sientes como nuevo."<<endl;
         break;
 
         case Fuerza: 
-        cout << "Observas la flor roja, sientes fuerza viniendo de ella, te llena de determinacion."<<endl;
+        cout << "Consumes la flor y sientes que puedes aplastar lo que sea."<<endl;
         break;
 
         case Resistencia: 
-        cout << "Observas la flor amarilla, sientes firmeza y valor, te llena de determinacion."<<endl;
+        cout << "Consumes la flor y sientes que puedes aguantar lo que sea."<<endl;
     };
 };
 void Flower::desc(){
