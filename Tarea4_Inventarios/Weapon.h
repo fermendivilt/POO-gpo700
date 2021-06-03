@@ -22,19 +22,19 @@ Weapon::Weapon(listWea a_wea):Item(arrWea[a_wea]){
     damage_mod = (Wea*1.9) + 8;
     switch(Wea) {
         case Nada:
-        description = "No confias en nada mas que en tus propias manos.";
+        description = "No tienes arma; no confias en nada mas que en tus propias manos.";
         break;
 
         case Daga: 
-        description = "Corta pero letal, rapida y mortal.";
+        description = "Una daga. Corta pero letal, rapida y mortal.";
         break;
 
         case Espada: 
-        description = "Clasica, algo pesada pero la puedes manejar con una mano.";
+        description = "Una espada. Clasica, algo pesada pero la puedes manejar con una mano.";
         break;
 
         case Espada_larga: 
-        description = "Muy pesada, pero muy eficiente, una estocada y el trabajo esta hecho.";
+        description = "Una espada larga. Muy pesada, pero muy eficiente, una estocada y el trabajo esta hecho.";
     };
     if (Wea != Nada){
         cout<<"Obtuviste una "<<arrWea[Wea]<<"."<<endl;

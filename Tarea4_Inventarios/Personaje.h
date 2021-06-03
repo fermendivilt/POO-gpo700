@@ -76,6 +76,7 @@ void Base_Personajes::showInventory(){
     for (int i=0;i<vecItems.size();i++){
         vecItems[i]->desc();
     }
+    cout<<endl;
 }
 
 #endif
