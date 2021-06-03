@@ -37,14 +37,14 @@ void Flower::use_equip(){
 void Flower::desc(){
     switch(consum) {
         case Vida:
-        cout << "."<<endl;
+        cout << "Observas la flor blanca, emana paz, te llena de determinacion."<<endl;
         break;
 
         case Fuerza: 
-        cout << "Tu potencial destructivo ha aumentado."<<endl;
+        cout << "Observas la flor roja, sientes fuerza viniendo de ella, te llena de determinacion."<<endl;
         break;
 
         case Resistencia: 
-        cout << "Has mejorado tu defensa."<<endl;
+        cout << "Observas la flor amarilla, sientes firmeza y valor, te llena de determinacion."<<endl;
     };
 }
