@@ -44,8 +44,8 @@ void Char_Choose(Base_Personajes *arr[]){
         cin>>confirm;
     } while (confirm != 1);
 
-    if (opcion == 1){objPersonaje = new LaserMan(10, 1, nombre);};
-    if (opcion == 2){objPersonaje = new ArrowWoman(100, 1, nombre);};
+    if (opcion == 1){objPersonaje = new LaserMan(10, 1, 100, nombre);};
+    if (opcion == 2){objPersonaje = new ArrowWoman(100, 1, 100, nombre);};
 
     arr[0] = objPersonaje;
 }

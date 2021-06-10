@@ -4,7 +4,7 @@
 class Base_Personajes {
     public:
         Base_Personajes();
-        Base_Personajes(int, int, int, string);
+        Base_Personajes(int, int, string);
         void setNivel(int n){nivel = n; dano_base = 15 + nivel*2;};
         double getDano_Base(){return dano_base;};
         void Correr();
@@ -37,11 +37,11 @@ Base_Personajes::Base_Personajes(){
     nombre = "";
     aguante = 0;
 }
-Base_Personajes::Base_Personajes(int ni, int vid, int ag, string no){
+Base_Personajes::Base_Personajes(int ni, int vid, string no){
     nivel = ni;
     vida_max = vid;
     vida_act = vida_max;
-    aguante = ag;
+    aguante = 0;
     dano_base = 15 + nivel*2;
     nombre = no;
 };

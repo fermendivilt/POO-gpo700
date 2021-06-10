@@ -3,7 +3,7 @@
 class LaserMan : public Base_Personajes {
     public:
         LaserMan();
-        LaserMan(int, int, string);
+        LaserMan(int, int, int, string);
         double Shoot();
         void showCargador();
         void showCapacidad();
@@ -18,7 +18,7 @@ LaserMan::LaserMan() : Base_Personajes() {
     Cargador = 4;
     Capacidad = 4;
 };
-LaserMan::LaserMan(int LimCargas, int nivel, string nom) : Base_Personajes(nivel, nom) {
+LaserMan::LaserMan(int LimCargas, int nivel, int vida, string nom) : Base_Personajes(nivel, vida, nom) {
     Cargador = LimCargas;
     Capacidad = LimCargas;
 };

@@ -3,7 +3,7 @@
 class ArrowWoman : public Base_Personajes {
     public:
         ArrowWoman();
-        ArrowWoman(int, int, string);
+        ArrowWoman(int, int, int, string);
         double Shoot();
         void addArrow(int);
         void showArrows();
@@ -15,7 +15,7 @@ class ArrowWoman : public Base_Personajes {
 ArrowWoman::ArrowWoman() : Base_Personajes() {
     numFlechas = 30;
 };
-ArrowWoman::ArrowWoman(int flechas, int nivel, string nom) : Base_Personajes(nivel, nom) {
+ArrowWoman::ArrowWoman(int flechas, int nivel, int vida, string nom) : Base_Personajes(nivel, vida, nom) {
     numFlechas = flechas;
 };
 void ArrowWoman::addArrow(int n){
