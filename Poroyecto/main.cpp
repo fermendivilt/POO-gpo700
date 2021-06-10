@@ -10,11 +10,11 @@
 #include <vector>
 using namespace std;
 
-#include "Room.h"
 #include "Flower.h"
 #include "Weapon.h"
 #include "LaserMan.h"
 #include "ArrowWoman.h"
+#include "Room.h"
 
 int main(){
     double dano_personaje1 = 0.00;
