@@ -4,9 +4,9 @@
 class Base_Personajes {
     public:
         Base_Personajes();
-        Base_Personajes(int, string);
-        void setNivel(int n){nivel = n;};
-        double getDamage(){return dano_base;};
+        Base_Personajes(int, int, int, string);
+        void setNivel(int n){nivel = n; dano_base = 15 + nivel*2;};
+        double getDano_Base(){return dano_base;};
         void Correr();
         void Saltar();
         virtual double Shoot() = 0;
@@ -16,21 +16,32 @@ class Base_Personajes {
         void addItemWeapon(listWea);
         void use(int);
         void equip(int);
+        void receiveDamage(int D){vida_act -= D;};
         void showInventory();
+        void muerte();
     protected:
         vector <Item*> vecItems;
         int nivel;
         double dano_base;
+        int vida_act;
+        int vida_max;
+        int aguante;
         string direccion;
         string nombre;
 };
 Base_Personajes::Base_Personajes(){
     nivel = 1;
+    vida_max = 0;
+    vida_act = vida_max;
     dano_base = 15;
     nombre = "";
+    aguante = 0;
 }
-Base_Personajes::Base_Personajes(int ni, string no){
+Base_Personajes::Base_Personajes(int ni, int vid, int ag, string no){
     nivel = ni;
+    vida_max = vid;
+    vida_act = vida_max;
+    aguante = ag;
     dano_base = 15 + nivel*2;
     nombre = no;
 };
