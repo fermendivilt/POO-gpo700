@@ -19,6 +19,7 @@ class Base_Personajes {
         void receiveDamage(int D){vida_act -= D;};
         void showInventory();
         void muerte();
+        void showVida();
     protected:
         vector <Item*> vecItems;
         int nivel;
@@ -89,5 +90,11 @@ void Base_Personajes::showInventory(){
     }
     cout<<endl;
 }
+void Base_Personajes::showVida(){
+    cout<<endl;
+    cout<<"------- Vida -------"<<endl;
+    cout<<"Vida actual  //  Vida maxima"<<endl;
+    cout<<"\t"<<vida_act<<"  //  "<<vida_max<<endl;
+};
 
 #endif

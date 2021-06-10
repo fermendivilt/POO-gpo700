@@ -15,6 +15,8 @@ using namespace std;
 #include "LaserMan.h"
 #include "ArrowWoman.h"
 #include "Room.h"
+#include "Enemy.h"
+#include "Texto.h"
 
 void Char_Choose(Base_Personajes *arr[]){
     string nombre;

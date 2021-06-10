@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+class Enemigo{
+    public:
+        Enemigo();
+        Enemigo(int,string,int);
+        void Damage(double);
+        void Muerte();
+    protected:
+        int damage;
+        string name;
+        int vida;
+};
+Enemigo::Enemigo(){
+    damage = 5;
+    name = "";
+    vida = 50;
+};
+Enemigo::Enemigo(int d,string n,int v){
+    damage = d;
+    name = n;
+    vida = v;
+};
+void Enemigo::Damage(double dam){
+    vida = vida - dam;
+    if(0==vida){Muerte();};
+};
+void Enemigo::Muerte(){
+    cout<<"\nAaaghghhhhhhh..."<<endl;
+};
