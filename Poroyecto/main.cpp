@@ -10,6 +10,7 @@
 #include <vector>
 using namespace std;
 
+#include "Room.h"
 #include "Flower.h"
 #include "Weapon.h"
 #include "LaserMan.h"
