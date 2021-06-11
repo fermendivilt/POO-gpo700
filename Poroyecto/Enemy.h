@@ -28,7 +28,7 @@ void Enemigo::Damage(double dam){
     if(0==vida){Muerte();};
 };
 void Enemigo::Muerte(){
-    cout<<"\nAaaghghhhhhhh..."<<endl;
+    cout<<"\nMonstruo: Aaaghghhhhhhh..."<<endl;
 };
 
 #endif

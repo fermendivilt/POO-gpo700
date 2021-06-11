@@ -2,8 +2,8 @@
 
 class Monster1 : public Enemigo{
     public:
-        Monster1();
-        Monster1(int *, string *,int *);
+        Monster1() : Enemigo(){};
+        Monster1(int a, string b, int c) : Enemigo(a, b, c){};
         void Ataque();
 };
 void Monster1::Ataque(){
@@ -11,8 +11,8 @@ void Monster1::Ataque(){
 };
 class Monster2 : public Enemigo{
     public:
-        Monster2();
-        Monster2(int *, string *,int *);
+        Monster2() : Enemigo(){};
+        Monster2(int a, string b, int c) : Enemigo(a, b, c){};
         void Ataque();
 };
 void Monster2::Ataque(){
@@ -21,8 +21,8 @@ void Monster2::Ataque(){
 
 class Monster3 : public Enemigo{
     public:
-        Monster3();
-        Monster3(int *, string *,int *);
+        Monster3() : Enemigo(){};
+        Monster3(int a, string b, int c) : Enemigo(a, b, c){};
         void Ataque();
 };
 void Monster3::Ataque(){
@@ -31,8 +31,8 @@ void Monster3::Ataque(){
 
 class Flor : public Enemigo{
     public:
-        Flor();
-        Flor(int *, string *,int *);
+        Flor() : Enemigo(){};
+        Flor(int a, string b, int c) : Enemigo(a, b, c){};
         void Ataque();
 };
 void Flor::Ataque(){

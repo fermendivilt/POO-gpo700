@@ -5,7 +5,7 @@ using namespace std;
 void Texto_1(string tu){
     system("cls");
     Sleep(500);
-    cout << "\n\n\n\nUn dia como cualquier otro, te encuentras haciendo tu caminata de cada manana." << endl;
+    cout << "Un dia como cualquier otro, te encuentras haciendo tu caminata de cada manana." << endl;
     cout << "A pesar de conocer el cerro detras de tu casa como la palma de tu mano, aparece un pino que no" << endl;
     cout << "recuerdas haber visto antes." << endl;
     cout << "Te acercas al arbol por curiosidad, pero justo cuando das tu primer paso hacia su direccion" <<endl;
@@ -46,6 +46,7 @@ void Texto_1(string tu){
     cout<<"Observas a tu alrededor... ";
     Sleep(1500); 
     cout<<"hay 5 puertas enumeradas."<<endl;
+    system("pause");
 };
 void Texto_puerta1(){
     system("cls");
@@ -60,22 +61,27 @@ void Texto_puerta1(){
 int Texto_salir(){
     int salir;
     cout<<"Estas seguro que deseas salir? No podras volver."<<endl;
-    cout<<"Introduce 1 para salir, u otro numero para seguir aqui.";
+    cout<<"Introduce 1 para salir, u otro numero para seguir aqui: ";
     cin>>salir;
     return salir;
 }
-void Texto_puerta1ataque(Base_Personajes *personaje){
+void Texto_puerta1ataque(Base_Personajes *personaje, Monster1 m){
     system("cls");
     cout<<"ATACAR:"<<endl;
     personaje->Shoot();
-    Monster1.Ataque();
+    Sleep(1500);
+    m.Ataque();
+    Sleep(1500);
     personaje->Shoot();
     cout<<endl;
     Sleep(2000);
     cout<<"Atacas al monstruo y a pesar de dar resistencia, despues de un rato no se mueve."<<endl;
-
+    m.Muerte();
+    Sleep(1000);
+    personaje->badKarma();
+    system("pause");
 };
-void Texto_puerta1conversar(){
+void Texto_puerta1conversar(Base_Personajes *personaje){
     system("cls");
     cout<<"CONVERSAR:"<<endl;
     Sleep(100);
@@ -90,43 +96,89 @@ void Texto_puerta1conversar(){
     cout<<"Te parece curiosa la respuesta, quieres saber mas."<<endl;
     Sleep(4000);
     cout<<"Te ensenia la ubicacion de un cofre, dice que tal vez te sea mas util que a el"<<endl;
+    personaje->goodKarma();
+    system("pause");
 };
-void Texto_puerta2(){
+void Texto_puerta2(int &busqueda, int &flores, Base_Personajes *personaje){
+    int opcion;
     system("cls");
     Sleep(100);
     cout<<"\nSales de la sala, ya no esta el girasol. Vas hacia la siguiente puerta."<<endl;
+    Sleep(4500);
     cout<<"La abres con algo de miedo, pero te das cuenta que esta vacia."<<endl;
+    Sleep(4500);
     cout<<"Solo hay un cofre con una nota encima."<<endl;
+    Sleep(4500);
     cout<<"La nota es breve:";
     cout<<"'Quien reciba esta nota, espero que solamente no sea ese monstruo."<<endl;
+    Sleep(4500);
     cout<<"No dejes que te atrape con sus amables palabras, no hay salida de aqui...'"<<endl;
-    cout<<"Dejas la nota, y abres el cofre."<<endl;
+    Sleep(4500);
+    cout<<"Dejas la nota, quieres abrir el cofre?. ";
+    cout<<"Introduce 1 para abrirlo, o cualquier numero para dejarlo: ";
+    cin>>opcion;
+    if (opcion == 1){
+        busqueda++;
+        flores++;
+        cout<<"El cofre contiene un gladiolo."<<endl;
+        personaje->addItemFlower(Resistencia);
+        personaje->use(0);
+        Sleep(3000);
+        };
     cout<<"Despues de dar una vuelta por la sala, regresas a la sala principal."<<endl;
+    system("pause");
 };
 void Texto_puerta3(){
     system("cls");
     Sleep(100);
-    cout<<"\nTe quedan 3 salas por explorar, que haras?"<<endl;
+    cout<<"Te quedan 3 salas por explorar."<<endl;
     cout<<"Vas a la tercera puerta, la abres con cuidado."<<endl;
     cout<<"Todo esta oscuro, no ves nada, apenas pasas por la puerta, esta se cierra con rapidamente"<<endl;
     cout<<"y con ello, una fria brisa que te preguntas de donde viene."<<endl;
     cout<<"Cuando tus ojos se adaptan a la casi inexistente luz, visualizan una silueta."<<endl;
     cout<<"---- ATACAR ===== BUSCAR EN LA SALA ===== CONVERSAR ===== SALIR ----"<<endl;
+    cout<<"Advertencia: escribe en minusculas la opcion."<<endl;
 };
-void Texto_puerta3ataque(){
+void Texto_puerta3ataque(Base_Personajes *personaje, Monster2 m){
     system("cls");
     Sleep(100);
     cout<<"Te aproximas a atacar, pero justo cuando tu espada lo va a tocar, empieza a volar."<<endl;
+    Sleep(500);
     cout<<"Lo atacas"<<endl;
+    personaje->Shoot();
+    Sleep(1500);
+    personaje->Shoot();
+    Sleep(1500);
+    m.Muerte();
+    Sleep(1500);
     cout<<"Despues de un rato de intentar escapar, el monstruo cae, y antes de morir, intenta decir algo pero no logras entender."<<endl;
-    cout<<"Justo en el lugar de su muerte, encuentras un cofre; abrir?"<<endl;
     Sleep(100);
-    cout<<"Salir de la sala?"<<endl;
+    personaje->badKarma();
+    cout<<endl;
+    system("pause");
+
 };
-void Texto_puerta3conversar(string tu){
+void Texto_puerta3conversarM(){
+    system("cls");
+    cout<<"MATAR:"<<endl;
+    cout<<"No tuviste piedad y atravesaste al monstruo con una flecha; abres el cofre?"<<endl;
+    cout<<"Salir?"<<endl;
+    cout<<"\nNo te molestas en buscar mas en la sala, y vuelves al lugar donde caiste."<<endl;
+    system("pause");
+};
+void Texto_puerta3conversarD(){
+    system("cls");
+    cout<<"DEJAR VIVIR:"<<endl;
+    //cout<<"Tuviste piedad del pobre indefenso, tomas lo contenido en el cofre."<<endl;
+    //cout<<"Salir?"<<endl;
+    cout<<"\nNo te molestas en buscar mas en la sala, y vuelves al lugar donde caiste."<<endl;
+    system("pause");
+};
+void Texto_puerta3conversar(string tu, Base_Personajes *personaje){
+    string opcion;
     system("cls");
     cout<<"CONVERSAR"<<endl;
-    cout<<"Te presentas ante un monstruo, esta vez, reconoces el lenguaje, habla un pobre espaniol"<<endl;
+    cout<<"Te presentas ante el monstruo, esta vez, reconoces el lenguaje, habla un pobre espaniol"<<endl;
     cout<<"- Monstruo: Quien eres? Donde esta 'el'?"<<endl;
     cout<<"- "<<tu<<": Quien es 'el'?"<<endl;
     cout<<"- Monstruo: Si tu aqui, tu deber conocerlo"<<endl;
@@ -136,21 +188,16 @@ void Texto_puerta3conversar(string tu){
     cout<<"\nTomas tu arma y te diriges a la silueta."<<endl;
     cout<<"- Monstruo: NOO, no matarme, ten caja, yo vivir, por favor."<<endl;
     cout<<"- Tu: No se que hacer contigo..."<<endl;
-    cout<<"MATAR o DEJAR VIVIR"<<endl;
-};
-void Texto_puerta3conversarM(){
-    system("cls");
-    cout<<"MATAR:"<<endl;
-    cout<<"No tuviste piedad y atravesaste al monstruo con una flecha; abres el cofre?"<<endl;
-    cout<<"Salir?"<<endl;
-    cout<<"\nNo te molestas en buscar mas en la sala, y vuelves al lugar donde caiste."<<endl;
-};
-void Texto_puerta3conversarD(){
-    system("cls");
-    cout<<"DEJAR VIVIR:"<<endl;
-    cout<<"Tuviste piedad del pobre indefenso, tomas lo contenido en el cofre."<<endl;
-    cout<<"Salir?"<<endl;
-    cout<<"\nNo te molestas en buscar mas en la sala, y vuelves al lugar donde caiste."<<endl;
+    cout<<"MATAR o DEJAR"<<endl;
+    cout<<"Advertencia: escribe en minusculas la opcion."<<endl;
+    if (opcion == "matar"){
+        Texto_puerta3conversarM();
+        personaje->badKarma();
+    }
+    if (opcion == "dejar"){
+        Texto_puerta3conversarD();
+        personaje->goodKarma();
+    }
 };
 void Texto_puerta4(){
     system("cls");
@@ -160,55 +207,104 @@ void Texto_puerta4(){
     cout<<"Te acercas poco a poco."<<endl;
     cout<<"---- ATACAR ===== BUSCAR EN LA SALA ===== CONVERSAR ===== SALIR ----"<<endl;
 };
-void Texto_puerta4ataque(){
+void Texto_puerta4ataque(Base_Personajes *p, Monster3 m){
     system("cls");
     cout<<"ATACAR:"<<endl;
     cout<<"Atacas al monstruo y contesta tus ataques."<<endl;
+    p->Shoot();
+    Sleep(1000);
+    m.Ataque();
+    Sleep(1000);
+    p->Shoot();
+    Sleep(1000);
+    m.Ataque();
+    Sleep(1000);
+    p->Shoot();
+    Sleep(1000);
+    m.Muerte();
+    Sleep(1000);
     cout<<"Despues de una ardua batalla, el monstruo cae."<<endl;
     cout<<"'Pudimos habernos ido, ingenuo...' son sus ultimas palabras antes de fallecer."<<endl;
-    cout<<"Encuentras un cofre algo empolvado. Abrir?"<<endl;
-    cout<<"Salir?"<<endl;
-    cout<<"Sales de la sala, ya solo queda una."<<endl;
+    system("pause");
 };
 void Texto_puerta4conversar(string tu){
     system("cls");
     cout<<"CONVERSAR:"<<endl;
-    cout<<"- "<<tu<<": Hey, que estas haciendo?"<<endl;
+    cout<<"- "<<tu<<": Hey, que e..."<<endl;
     cout<<"- Monstruo: Eh? Y tu quien eres? Bueno, no importa, si no me has matado es porque no estas de lado de esa cosa."<<endl;
+    Sleep(4000);
     cout<<"- "<<tu<<": No se de que hablas. No entiendo de que hablan todos, yo solo quiero salir de aqui"<<endl;
+    Sleep(4000);
     cout<<"- Monstruo: Aah, con que tu tambien quieres salir, entonces ayudame a seguir cavando. Rapido."<<endl;
+    Sleep(4000);
     cout<<"- "<<tu<<": Umm, no creo que podamos salir de aqui con un tunel."<<endl;
-    cout<<"- Monstruo: Ok, si no vas a ayudar no estorbes y largate. Solo toma lo que hay en ese cofre y vete."<<endl;
+    Sleep(4000);
+    cout<<"- Monstruo: Ok, si no vas a ayudar no estorbes y largate."<<endl;
+    Sleep(4000);
     cout<<"- "<<tu<<": Gracias... Supongo."<<endl;
-    cout<<"Te acercas al cofre. Abrir?"<<endl;
-    cout<<"Salir?"<<endl;
-    cout<<"Sales de la sala, ya solo queda una."<<endl;
+    system("pause");
 };
-void Texto_puerta5(string tu){
+void Texto_puerta5(string tu, Base_Personajes *p){
     system("cls");
     cout<<"\nVuelves a la sala principal."<<endl;
+    Sleep(1000);
     cout<<"Te acercas a la ultima puerta que te hace falta por revisar. La abres y te abruma la luz que proviene de ahi"<<endl;
+    Sleep(4000);
     cout<<"Entras y, una vez mas, una habitacion vacia. Solo un cofre y una carta"<<endl;
+    Sleep(4000);
     cout<<"\n'No aguanto mas, desde que cai aqui no he hecho mas que sufrir, solo por hacerle caso a esa flor..."<<endl;
-    cout<<"No sirvio de nada todo lo que hice, no se puede salir de aqui, no se si 'el' no quiere..."<<endl;
+    cout<<"No sirvio de nada todo lo que hice, no se puede salir de aqui, no si 'el' no quiere..."<<endl;
     cout<<"Quisiera no haber hecho todo eso, y al menos conservar mi humanidad...'"<<endl;
+    system("pause");
     cout<<"\nMuchas cosas pasan por tu cabeza, pero tu conclusion es que el verdadero enemigo, es esa flor..."<<endl;
+    Sleep(4000);
     cout<<"Tomas lo del cofre."<<endl;
+    Sleep(1000);
+    p->addItemFlower(Fuerza);
+    p->use(0);
     cout<<"\nY sales de la habitacion iluminada. Ahi te espera la flor."<<endl;
+    system("pause");
 };
-void Texto_final(string tu){
+void Texto_final(string tu, Base_Personajes *p, Flor f){
     system("cls");
     cout<<"- Flor con rostro: Como te fue? Acabaste con todos?"<<endl;
+    Sleep(4000);
     cout<<"- "<<tu<<": Solo dime como salir de aqui."<<endl;
+    Sleep(4000);
     cout<<"- Flor con rostro: Ummm, apenas estaba comenzando a ser divertido. Creo que te quedaras un tiempo mas aqui"<<endl;
+    Sleep(4000);
     cout<<"- Tu: No lo creo, si es necesario, te sacare la informacion a la fuerza."<<endl;
+    Sleep(4000);
     cout<<"- Flor con rostro: Y esa agresividad? Claro que no es necesario... Solo acepta tu destino."<<endl;
+    Sleep(4000);
     cout<<"Arremetes contra la flor."<<endl;
+    Sleep(1000);
+    p->Shoot();
+    Sleep(1500);
+    p->Shoot();
+    Sleep(1500);
+    f.Ataque();
+    Sleep(1500);
+    p->Shoot();
+    Sleep(1500);
+    p->Shoot();
+    Sleep(1500);
+    f.Ataque();
+    Sleep(1500);
+    p->Shoot();
+    Sleep(1500);
+    f.Muerte();
+    Sleep(3000);
     cout<<"Despues de la pelea, muy cansado observas en tu mano una marca en forma de flor, caes desmayado."<<endl;
+    Sleep(5000);
+    system("pause");
 };
 void Texto_fin(){
     system("cls");
+    Sleep(1500);
     cout<<"\nDespiertas debajo de un arbol cerca de tu casa. Te preguntas si todo fue solo un suenio."<<endl;
-    cout<<"Pero ves la marca en tu brazo, y solo te queda recordar lo que paso."<<endl;
+    Sleep(4500);
+    cout<<"... pero ves la marca en tu brazo, y solo te queda recordar lo que paso."<<endl;
     cout<<"\n\nFIN.\n\n"<<endl;
+    system("pause");
 };

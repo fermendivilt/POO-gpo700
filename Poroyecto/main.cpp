@@ -15,7 +15,7 @@ using namespace std;
 #include "LaserMan.h"
 #include "ArrowWoman.h"
 #include "Room.h"
-#include "list_Monster.h"
+#include "list_Monsters.h"
 #include "Texto.h"
 
 void Char_Choose(Base_Personajes *arr[]){
@@ -53,11 +53,14 @@ void Char_Choose(Base_Personajes *arr[]){
 }
 
 int main(){
-    Monster1 monstruo1(5 ,"Monstruo desconocido", 50)
+    Monster1 monstruo1(5, "Monstruo desconocido", 50);
+    Monster2 monstruo2(5, "Volador", 50);
+    Monster3 monstruo3(5, "Cavador", 50);
+    Flor flor(10, "Flor", 500);
     system("cls");
     Base_Personajes *PlayerTeam[1];
     string decision;
-    int puerta, exit;
+    int puerta, exit, busquedas, flores, puntuacion;
 
     /* Room puerta1("Puerta 1","Sala con monstruo desconocido.");
     Room puerta2("Puerta 2","Sala vacia con nota (1/2).");
@@ -68,23 +71,92 @@ int main(){
     Char_Choose(PlayerTeam);
 
     Texto_1(PlayerTeam[0]->getNombre());
-    Texto_puerta1();
-    cin>>decision;
+
     while (exit != 1){
+        Texto_puerta1();
+        cin>>decision;
+
         if (decision == "atacar"){
-            Texto_puerta1ataque(PlayerTeam[0]);
+            Texto_puerta1ataque(PlayerTeam[0], monstruo1);
         }
         if (decision == "buscar"){
-            
+            system("cls");
+            cout<<"Vas a un cofre en la esquina de la habitacion...";
+            Sleep(500);
+            cout<<" contiene una Ipomoea."<<endl;
+            PlayerTeam[0]->addItemFlower(Vida);
+            PlayerTeam[0]->showInventory();
+            PlayerTeam[0]->use(0);
+            flores++;
+            busquedas++;
+            system("pause");
         }
         if (decision == "conversar"){
-            Texto_puerta1conversar();
+            Texto_puerta1conversar(PlayerTeam[0]);
         }
         if (decision == "salir"){
             exit = Texto_salir();
         }
     }
     exit = 0;
+
+    Texto_puerta2(busquedas, flores, PlayerTeam[0]);
+
+    while (exit != 1){
+        Texto_puerta3();
+        cin>>decision;
+
+        if (decision == "atacar"){
+            Texto_puerta3ataque(PlayerTeam[0], monstruo2);
+        }
+        if (decision == "buscar"){
+            cout<<"No hay nada que destacar."<<endl;
+            busquedas++;
+            system("pause");
+        }
+        if (decision == "conversar"){
+            Texto_puerta3conversar(PlayerTeam[0]->getNombre(), PlayerTeam[0]);
+        }
+        if (decision == "salir"){
+            exit = Texto_salir();
+        }
+    }
+    exit = 0;
+
+    while (exit != 1){
+        Texto_puerta4();
+        cin>>decision;
+
+        if (decision == "atacar"){
+            Texto_puerta4ataque(PlayerTeam[0], monstruo3);
+            PlayerTeam[0]->badKarma();
+        }
+        if (decision == "buscar"){
+            cout<<"Ves un gladiolo a lo lejos, y vas por el."<<endl;
+            PlayerTeam[0]->addItemFlower(Resistencia);
+            PlayerTeam[0]->use(0);
+            flores++;
+            busquedas++;
+            system("pause");
+        }
+        if (decision == "conversar"){
+            PlayerTeam[0]->goodKarma();
+            Texto_puerta4conversar(PlayerTeam[0]->getNombre());
+        }
+        if (decision == "salir"){
+            exit = Texto_salir();
+        }
+    }
+    exit = 0;
+
+    Texto_puerta5(PlayerTeam[0]->getNombre(), PlayerTeam[0]);
+    flores++;
+
+    Texto_final(PlayerTeam[0]->getNombre(), PlayerTeam[0], flor);
+
+    Texto_fin();
+
+    PlayerTeam[0]->muerte(busquedas, flores);
 
     return 0;
 };

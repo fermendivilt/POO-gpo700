@@ -18,10 +18,11 @@ class Base_Personajes {
         void equip(int);
         void receiveDamage(int D){vida_act -= D;};
         void showInventory();
-        void muerte();
+        void muerte(int, int);
         void showVida();
-        void goodKarma(){karma++;};
-        void badKarma(){karma--;};
+        int getKarma(){return karma;};
+        void goodKarma(){karma++; cout<<"Tu karma ha aumentado."<<endl;};
+        void badKarma(){karma--; cout<<"Tu karma ha caido."<<endl;};
     protected:
         vector <Item*> vecItems;
         int nivel;
@@ -76,6 +77,7 @@ void Base_Personajes::addItemFlower(Flowers in){
 }
 void Base_Personajes::use(int i){
     vecItems[i]->use_equip();
+    vecItems.erase(vecItems.begin()+i);
 }
 void Base_Personajes::addItemWeapon(listWea in){
     Item *objItems;
@@ -101,10 +103,11 @@ void Base_Personajes::showVida(){
     cout<<"Vida actual  //  Vida maxima"<<endl;
     cout<<"\t"<<vida_act<<"  //  "<<vida_max<<endl;
 };
-void Base_Personajes::muerte(){
+void Base_Personajes::muerte(int busquedas, int flores){
     cout<<endl<<endl;
+    int punt = karma + busquedas + flores;
     if (vida_act <= 0) {cout<<"Has muerto..."<<endl;};
-    cout<<"Tu puntuacion es: "<<karma<<endl;
+    cout<<"Tu puntuacion es: "<<punt<<endl;
     system("pause");
 }
 
