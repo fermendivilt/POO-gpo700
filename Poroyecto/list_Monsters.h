@@ -3,7 +3,7 @@
 class Monster1 : public Enemigo{
     public:
         Monster1();
-        Monster1(string *,int *,int *);
+        Monster1(int *, string *,int *);
         void Ataque();
 };
 void Monster1::Ataque(){
@@ -12,7 +12,7 @@ void Monster1::Ataque(){
 class Monster2 : public Enemigo{
     public:
         Monster2();
-        Monster2(string *,int *,int *);
+        Monster2(int *, string *,int *);
         void Ataque();
 };
 void Monster2::Ataque(){
@@ -22,7 +22,7 @@ void Monster2::Ataque(){
 class Monster3 : public Enemigo{
     public:
         Monster3();
-        Monster3(string *,int *,int *);
+        Monster3(int *, string *,int *);
         void Ataque();
 };
 void Monster3::Ataque(){
@@ -32,7 +32,7 @@ void Monster3::Ataque(){
 class Flor : public Enemigo{
     public:
         Flor();
-        Flor(string *,int *,int *);
+        Flor(int *, string *,int *);
         void Ataque();
 };
 void Flor::Ataque(){

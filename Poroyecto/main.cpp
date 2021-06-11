@@ -53,6 +53,7 @@ void Char_Choose(Base_Personajes *arr[]){
 }
 
 int main(){
+    Monster1 monstruo1(5 ,"Monstruo desconocido", 50)
     system("cls");
     Base_Personajes *PlayerTeam[1];
     string decision;

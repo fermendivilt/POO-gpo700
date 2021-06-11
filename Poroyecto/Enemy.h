@@ -1,7 +1,6 @@
 #ifndef Enemy_h
 #define Enemy_h
 
-using namespace std;
 class Enemigo{
     public:
         Enemigo();

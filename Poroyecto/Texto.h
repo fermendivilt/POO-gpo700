@@ -68,7 +68,7 @@ void Texto_puerta1ataque(Base_Personajes *personaje){
     system("cls");
     cout<<"ATACAR:"<<endl;
     personaje->Shoot();
-    // dano del mostro
+    Monster1.Ataque();
     personaje->Shoot();
     cout<<endl;
     Sleep(2000);
