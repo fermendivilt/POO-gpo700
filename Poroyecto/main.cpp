@@ -60,7 +60,9 @@ int main(){
     system("cls");
     Base_Personajes *PlayerTeam[1];
     string decision;
-    int puerta, exit, busquedas, flores;
+    int puerta, exit;
+    int busquedas = 0;
+    int flores = 0;
 
     /* Room puerta1("Puerta 1","Sala con monstruo desconocido.");
     Room puerta2("Puerta 2","Sala vacia con nota (1/2).");
