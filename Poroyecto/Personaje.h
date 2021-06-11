@@ -20,6 +20,8 @@ class Base_Personajes {
         void showInventory();
         void muerte();
         void showVida();
+        void goodKarma(){karma++;};
+        void badKarma(){karma--;};
     protected:
         vector <Item*> vecItems;
         int nivel;
@@ -29,6 +31,7 @@ class Base_Personajes {
         int aguante;
         string direccion;
         string nombre;
+        int karma;
 };
 Base_Personajes::Base_Personajes(){
     nivel = 1;
@@ -37,6 +40,7 @@ Base_Personajes::Base_Personajes(){
     dano_base = 15;
     nombre = "";
     aguante = 0;
+    karma = 0;
 }
 Base_Personajes::Base_Personajes(int ni, int vid, string no){
     nivel = ni;
@@ -45,6 +49,7 @@ Base_Personajes::Base_Personajes(int ni, int vid, string no){
     aguante = 0;
     dano_base = 15 + nivel*2;
     nombre = no;
+    karma = 0;
 };
 void Base_Personajes::Correr(){
     cout<<"Hacia donde quiere "<<nombre<<" correr? Solo una palabra por favor: ";
@@ -96,5 +101,9 @@ void Base_Personajes::showVida(){
     cout<<"Vida actual  //  Vida maxima"<<endl;
     cout<<"\t"<<vida_act<<"  //  "<<vida_max<<endl;
 };
+void Base_Personajes::muerte(){
+    cout<<"Has muerto..."<<endl;
+    cout<<"Tu puntuacion es: "<<karma<<endl;
+}
 
 #endif

@@ -2,42 +2,46 @@
 #include <windows.h>
 using namespace std;
 
-void Texto_1(){
+void Texto_1(string tu){
     Sleep(500);
     cout << "\n\n\n\nUn dia como cualquier otro, te encuentras haciendo tu caminata de cada manana." << endl;
     cout << "A pesar de conocer el cerro detras de tu casa como la palma de tu mano, aparece un pino que no" << endl;
     cout << "recuerdas haber visto antes." << endl;
     cout << "Te acercas al arbol por curiosidad, pero justo cuando das tu primer paso hacia su direccion" <<endl;
     cout << "sientes que el suelo en tus pies desaparece." <<endl;
-    Sleep(500);
+    cout<<endl;
+    system("pause");
     cout<< "\nEmpiezas a caer, y comienzas a asustarte pues sabes que no sobrevivirias una caida de tal altura."<<endl;
     cout<<"Despues de un rato cayendo, ya no sabes si es lo que te esta pasando es un sueno o es real."<<endl;
     cout<<"Has caido tanto que ya no llega ningun tipo de luz a donde vas, solo tienes la constante sensacion de estar cayendo."<<endl;
     cout<<"Comienzas a ver una luz, esperandote al final de tu caida."<<endl;
     cout<<"Luego comienzas a sentir tan cerca tu caida que solo cierras tus ojos."<<endl;
-    Sleep(500);
+    cout<<endl;
+    system("pause");
     cout<<"\nCaes, y extranado de seguir vivo, te das cuenta que aterrizaste sobre una cama de flores."<<endl;
     cout<<"Todavia extranado y asustado, sales de la cama compuesta de margaritas, girasoles y otras flores."<<endl;
     cout<<"Y frente a ti se encuentra un girasol mucho mas grande de lo normal, pero eso no es lo mas extrano."<<endl;
     cout<<"Te das cuenta que la flor gigante tiene rostro, te asustas, pero no tienes a donde huir o escapar."<<endl;
     cout<<"En eso, escuchas a la flor hablar."<<endl;
-    Sleep(2000);
+    cout<<endl;
+    system("pause");
     cout<<"\n - Flor con rostro: Hola, bienvenido a las profundidades; Que te trae por aqui­?"<<endl;
-    Sleep(100);
-    cout<<"\n - Tu:            :"<<" Umm, hola... Solo estaba caminando por el cerro, y de pronto cai aqui."<<endl;
-    Sleep(100);
+    Sleep(6500);
+    cout<<"\n - "<<tu<<": "<<" Umm, hola... Solo estaba caminando por el cerro, y de pronto cai aqui."<<endl;
+    Sleep(6500);
     cout<<"\n - Flor con rostro: Ooh, que interesante, entonces supongo que quieres regresar a tu hogar; no?"<<endl;
-    Sleep(100);
-    cout<<"\n - Tu:            :"<<"Si, quisiera volver, pero estoy tan profundo que ni siquiera se si pueda escalar tanto."<<endl;
-    Sleep(100);
+    Sleep(6500);
+    cout<<"\n - "<<tu<<": "<<"Si, quisiera volver, pero estoy tan profundo que ni siquiera se si pueda escalar tanto."<<endl;
+    Sleep(6500);
     cout<<"\n - Flor con rostro: No es necesario; simplemente tienes que vencer a los 3 monstruos que se encuentran en las salas"<<endl;
     cout<<"de esta cueva."<<endl;
-    Sleep(100);
-    cout<<"\n - Tu:            :Umm, ojala sea tan facil como lo dices."<<endl;
+    Sleep(6500);
+    cout<<"\n - "<<tu<<": Umm, ojala sea tan facil como lo dices."<<endl;
+    Sleep(5000);
     cout<<"\nY asi, en lo absurdo de la situacion, aceptaste la tarea que te dio la flor que habla, solo para salir de ahi."<<endl;
     cout<<"Tomaste una vieja espada y un arco de palo que se encontraban en el suelo."<<endl;
     cout<<"El arco se deshace cuando tratas de probarlo."<<endl;
-    Sleep(100);
+    system("pause");
     cout<<"Observas a tu alrededor, hay 5 puertas enumeradas, cual es tu decision?"<<endl;
 };
 void Texto_puerta1(){
@@ -92,18 +96,18 @@ void Texto_puerta3ataque(){
     Sleep(100);
     cout<<"Salir de la sala?"<<endl;
 };
-void Texto_puerta3conversar(){
+void Texto_puerta3conversar(string tu){
     cout<<"CONVERSAR"<<endl;
     cout<<"Una vez mas, te presentas ante un monstruo, esta vez, reconoces el lenguaje, habla un pobre espaniol"<<endl;
     cout<<"- Monstruo: Quien eres? Donde esta 'el'?"<<endl;
-    cout<<"- Tu:       Quien es 'el'?"<<endl;
+    cout<<"- "<<tu<<": Quien es 'el'?"<<endl;
     cout<<"- Monstruo: Si tu aqui, tu deber conocerlo"<<endl;
-    cout<<"- Tu:       Hablas de la flor?"<<endl;
+    cout<<"- "<<tu<<": Hablas de la flor?"<<endl;
     cout<<"- Monstruo: Si... yo odio flor."<<endl;
-    cout<<"- Tu:       Oye, no se porque dices eso, pero quiero salir de aqui, y para lograrlo, lo siento, pero tengo que matarte."<<endl;
-    cout<<"\nTomas tu arco y le apuntas a la silueta."<<endl;
+    cout<<"- "<<tu<<": Oye, no se porque dices eso, pero quiero salir de aqui, y para lograrlo, lo siento, pero tengo que matarte."<<endl;
+    cout<<"\nTomas tu arma y te diriges a la silueta."<<endl;
     cout<<"- Monstruo: NOO, no matarme, ten caja, yo vivir, por favor."<<endl;
-    cout<<"- Tu:       No se que hacer contigo..."<<endl;
+    cout<<"- Tu: No se que hacer contigo..."<<endl;
     cout<<"MATAR o DEJAR VIVIR"<<endl;
 };
 void Texto_puerta3conversarM(){
@@ -134,20 +138,20 @@ void Texto_puerta4ataque(){
     cout<<"Salir?"<<endl;
     cout<<"Sales de la sala, ya solo queda una."<<endl;
 };
-void Texto_puerta4conversar(){
+void Texto_puerta4conversar(string tu){
     cout<<"CONVERSAR:"<<endl;
-    cout<<"- Tu:       Hey, que estas haciendo?"<<endl;
+    cout<<"- "<<tu<<": Hey, que estas haciendo?"<<endl;
     cout<<"- Monstruo: Eh? Y tu quien eres? Bueno, no importa, si no me has matado es porque no estas de lado de esa cosa."<<endl;
-    cout<<"- Tu:       No se de que hablas. No entiendo de que hablan todos, yo solo quiero salir de aqui"<<endl;
+    cout<<"- "<<tu<<": No se de que hablas. No entiendo de que hablan todos, yo solo quiero salir de aqui"<<endl;
     cout<<"- Monstruo: Aah, con que tu tambien quieres salir, entonces ayudame a seguir cavando. Rapido."<<endl;
-    cout<<"- Tu:       Umm, no creo que podamos salir de aqui con un tunel."<<endl;
+    cout<<"- "<<tu<<": Umm, no creo que podamos salir de aqui con un tunel."<<endl;
     cout<<"- Monstruo: Ok, si no vas a ayudar no estorbes y largate. Solo toma lo que hay en ese cofre y vete."<<endl;
-    cout<<"- Tu:       Gracias... Supongo."<<endl;
+    cout<<"- "<<tu<<": Gracias... Supongo."<<endl;
     cout<<"Te acercas al cofre. Abrir?"<<endl;
     cout<<"Salir?"<<endl;
     cout<<"Sales de la sala, ya solo queda una."<<endl;
 };
-void Texto_puerta5(){
+void Texto_puerta5(string tu){
     cout<<"\nVuelves a la sala principal."<<endl;
     cout<<"Te acercas a la ultima puerta que te hace falta por revisar. La abres y te abruma la luz que proviene de ahi"<<endl;
     cout<<"Entras y, una vez mas, una habitacion vacia. Solo un cofre y una carta"<<endl;
@@ -158,11 +162,11 @@ void Texto_puerta5(){
     cout<<"Tomas lo del cofre."<<endl;
     cout<<"\nY sales de la habitacion iluminada. Ahi te espera la flor."<<endl;
 };
-void Texto_final(){
+void Texto_final(string tu){
     cout<<"- Flor con rostro: Como te fue? Acabaste con todos?"<<endl;
-    cout<<"- Tu:            : Solo dime como salir de aqui."<<endl;
+    cout<<"- "<<tu<<": Solo dime como salir de aqui."<<endl;
     cout<<"- Flor con rostro: Ummm, apenas estaba comenzando a ser divertido. Creo que te quedaras un tiempo mas aqui"<<endl;
-    cout<<"- Tu:            : No lo creo, si es necesario, te sacare la informacion a la fuerza."<<endl;
+    cout<<"- Tu: No lo creo, si es necesario, te sacare la informacion a la fuerza."<<endl;
     cout<<"- Flor con rostro: Y esa agresividad? Claro que no es necesario... Solo acepta tu destino."<<endl;
     cout<<"Arremetes contra la flor."<<endl;
     cout<<"Despues de la pelea, muy cansado observas en tu mano una marca en forma de flor, caes desmayado."<<endl;

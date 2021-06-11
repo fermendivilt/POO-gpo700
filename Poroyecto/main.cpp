@@ -42,7 +42,7 @@ void Char_Choose(Base_Personajes *arr[]){
 
         if (opcion == 1){cout<<"\nHombre laser: mucho da"<<(char)164<<"o m"<<(char)160<<"gico, pero cargador limitado.";};
         if (opcion == 2){cout<<"\nMujer flecha: pega tan fuerte como flechas lance.";};
-        cout<<"\n"<<(char)168<<"Es esta la clase que quieres? Introduce 1 para confirmar: ";
+        cout<<"\n"<<(char)168<<"Es esta la clase que quieres? Introduce 1 para confirmar u otro numero para cambiar: ";
         cin>>confirm;
     } while (confirm != 1);
 
@@ -55,9 +55,7 @@ void Char_Choose(Base_Personajes *arr[]){
 int main(){
     Base_Personajes *PlayerTeam[1];
     Char_Choose(PlayerTeam);
-    
-    PlayerTeam[0]->Correr();
-    PlayerTeam[0]->Shoot();
+
+    Texto_1(PlayerTeam[0]->getNombre());
     return 0;
 };
-
