@@ -1,4 +1,6 @@
-#include <iostream>
+#ifndef Enemy_h
+#define Enemy_h
+
 using namespace std;
 class Enemigo{
     public:
@@ -6,6 +8,7 @@ class Enemigo{
         Enemigo(int,string,int);
         void Damage(double);
         void Muerte();
+        virtual void Ataque() = 0;
     protected:
         int damage;
         string name;
@@ -28,3 +31,5 @@ void Enemigo::Damage(double dam){
 void Enemigo::Muerte(){
     cout<<"\nAaaghghhhhhhh..."<<endl;
 };
+
+#endif

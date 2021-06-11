@@ -15,7 +15,7 @@ using namespace std;
 #include "LaserMan.h"
 #include "ArrowWoman.h"
 #include "Room.h"
-#include "Enemy.h"
+#include "list_Monster.h"
 #include "Texto.h"
 
 void Char_Choose(Base_Personajes *arr[]){
@@ -46,16 +46,17 @@ void Char_Choose(Base_Personajes *arr[]){
         cin>>confirm;
     } while (confirm != 1);
 
-    if (opcion == 1){objPersonaje = new LaserMan(10, 1, 100, nombre);};
+    if (opcion == 1){objPersonaje = new LaserMan(30, 1, 100, nombre);};
     if (opcion == 2){objPersonaje = new ArrowWoman(100, 1, 100, nombre);};
 
     arr[0] = objPersonaje;
 }
 
 int main(){
+    system("cls");
     Base_Personajes *PlayerTeam[1];
-    int puerta;
-    int puertas_restantes = 5;
+    string decision;
+    int puerta, exit;
 
     /* Room puerta1("Puerta 1","Sala con monstruo desconocido.");
     Room puerta2("Puerta 2","Sala vacia con nota (1/2).");
@@ -66,7 +67,23 @@ int main(){
     Char_Choose(PlayerTeam);
 
     Texto_1(PlayerTeam[0]->getNombre());
+    Texto_puerta1();
+    cin>>decision;
+    while (exit != 1){
+        if (decision == "atacar"){
+            Texto_puerta1ataque(PlayerTeam[0]);
+        }
+        if (decision == "buscar"){
+            
+        }
+        if (decision == "conversar"){
+            Texto_puerta1conversar();
+        }
+        if (decision == "salir"){
+            exit = Texto_salir();
+        }
+    }
+    exit = 0;
 
-    
     return 0;
 };
