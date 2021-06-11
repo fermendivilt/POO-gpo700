@@ -293,7 +293,7 @@ void Texto_final(string tu, Base_Personajes *p, Flor f){
     Sleep(1500);
     p->Shoot();
     Sleep(1500);
-    f.Muerte();
+    f.muerte_f();
     Sleep(3000);
     cout<<"Despues de la pelea, muy cansado observas en tu mano una marca en forma de flor, caes desmayado."<<endl;
     Sleep(5000);

@@ -34,7 +34,16 @@ class Flor : public Enemigo{
         Flor() : Enemigo(){};
         Flor(int a, string b, int c) : Enemigo(a, b, c){};
         void Ataque();
+        void muerte_f();
 };
 void Flor::Ataque(){
     cout<<name<<" TE HA ENREDEDADO. INFLINGE "<<damage*2.5<<" DE DANO VERDADERO!"<<endl;
+};
+void Flor::muerte_f(){
+    cout<<name<<"N";
+    for (int i = 0; i<10000; i++){
+        cout<<"O";
+        Sleep(5);
+    };
+    cout<<endl;
 };
