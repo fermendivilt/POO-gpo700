@@ -46,7 +46,7 @@ void Texto_1(string tu){
 };
 void Texto_puerta1(){
     Sleep(100);
-    cout<<"Te acercas a la primer puerta, la abres lentamente y frente a ti se muestra un ____"<<endl;
+    cout<<"Te acercas a la primer puerta, la abres lentamente y frente a ti se muestra un monstruo que no conoces."<<endl;
     cout<<"A pesar de verse amenazador, no te ataca cuando te ve, y solo observas su mirada llena de dolor."<<endl;
     Sleep(100);
     cout<<"---- ATACAR ===== BUSCAR EN LA SALA ===== CONVERSAR ===== SALIR ----"<<endl;
@@ -70,7 +70,7 @@ void Texto_puerta1conversar(){
 void Texto_puerta2(){
     Sleep(100);
     cout<<"\nSales de la sala, ya no esta el girasol. Vas hacia la siguiente puerta."<<endl;
-    cout<<"La abres abres con algo de miedo, pero te das cuenta que esta vacia."<<endl;
+    cout<<"La abres con algo de miedo, pero te das cuenta que esta vacia."<<endl;
     cout<<"Solo hay un cofre con una nota encima."<<endl;
     cout<<"La nota es breve:";
     cout<<"'Quien reciba esta nota, espero que solamente no sea ese monstruo."<<endl;
@@ -98,7 +98,7 @@ void Texto_puerta3ataque(){
 };
 void Texto_puerta3conversar(string tu){
     cout<<"CONVERSAR"<<endl;
-    cout<<"Una vez mas, te presentas ante un monstruo, esta vez, reconoces el lenguaje, habla un pobre espaniol"<<endl;
+    cout<<"Te presentas ante un monstruo, esta vez, reconoces el lenguaje, habla un pobre espaniol"<<endl;
     cout<<"- Monstruo: Quien eres? Donde esta 'el'?"<<endl;
     cout<<"- "<<tu<<": Quien es 'el'?"<<endl;
     cout<<"- Monstruo: Si tu aqui, tu deber conocerlo"<<endl;

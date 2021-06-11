@@ -102,8 +102,10 @@ void Base_Personajes::showVida(){
     cout<<"\t"<<vida_act<<"  //  "<<vida_max<<endl;
 };
 void Base_Personajes::muerte(){
-    cout<<"Has muerto..."<<endl;
+    cout<<endl<<endl;
+    if (vida_act <= 0) {cout<<"Has muerto..."<<endl;};
     cout<<"Tu puntuacion es: "<<karma<<endl;
+    system("pause");
 }
 
 #endif

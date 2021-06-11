@@ -54,8 +54,19 @@ void Char_Choose(Base_Personajes *arr[]){
 
 int main(){
     Base_Personajes *PlayerTeam[1];
+    int puerta;
+    int puertas_restantes = 5;
+
+    /* Room puerta1("Puerta 1","Sala con monstruo desconocido.");
+    Room puerta2("Puerta 2","Sala vacia con nota (1/2).");
+    Room puerta3("Puerta 3","Sala con monstruo de pobre espaniol.");
+    Room puerta4("Puerta 4","Sala con escapista.");
+    Room puerta5("Puerta 5","Sala vacia con nota (1/2)."); */
+
     Char_Choose(PlayerTeam);
 
     Texto_1(PlayerTeam[0]->getNombre());
+
+
     return 0;
 };
