@@ -67,6 +67,6 @@ int main(){
 
     Texto_1(PlayerTeam[0]->getNombre());
 
-
+    
     return 0;
 };
